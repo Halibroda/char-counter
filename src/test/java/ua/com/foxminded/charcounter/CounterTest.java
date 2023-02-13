@@ -1,4 +1,4 @@
-package ua.com.foxminded.collectionframework;
+package ua.com.foxminded.charcounter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,42 +12,42 @@ class CounterTest {
     private Counter counter = new Counter();
 
     @Test
-    void format_singleChar_correctLine() {
+    void countChar_singleChar_correctLine() {
         Map<Character, Integer> expectedResult = new HashMap<>();
         expectedResult.put("h".charAt(0), 1);
         assertEquals(expectedResult, counter.countChar("h"));
     }
 
     @Test
-    void format_singleQuote_correctLine() {
+    void countChar_singleQuote_correctLine() {
         Map<Character, Integer> expectedResult = new HashMap<>();
         expectedResult.put('"', 1);
         assertEquals(expectedResult, counter.countChar(String.valueOf('"')));
     }
 
     @Test
-    void format_severalQuotes_correctLine() {
+    void countChar_severalQuotes_correctLine() {
         Map<Character, Integer> expectedResult = new HashMap<>();
         expectedResult.put('"', 3);
         assertEquals(expectedResult, counter.countChar(String.valueOf('"') + '"' + '"'));
     }
 
     @Test
-    void format_singleSpace_correctLine() {
+    void countChar_singleSpace_correctLine() {
         Map<Character, Integer> expectedResult = new HashMap<>();
         expectedResult.put(" ".charAt(0), 1);
         assertEquals(expectedResult, counter.countChar(" "));
     }
 
     @Test
-    void format_severalSpace_correctLine() {
+    void countChar_severalSpace_correctLine() {
         Map<Character, Integer> expectedResult = new HashMap<>();
         expectedResult.put(" ".charAt(0), 3);
         assertEquals(expectedResult, counter.countChar("   "));
     }
 
     @Test
-    void format_multipleSameLettersUpperLowerCase_correctLine() {
+    void countChar_multipleSameLettersUpperLowerCase_correctLine() {
         Map<Character, Integer> expectedResult = new HashMap<>();
         expectedResult.put("q".charAt(0), 4);
         expectedResult.put("Q".charAt(0), 3);
@@ -55,7 +55,7 @@ class CounterTest {
     }
 
     @Test
-    void format_nonLettersString_correctLine() {
+    void countChar_nonLettersString_correctLine() {
         Map<Character, Integer> expectedResult = new HashMap<>();
         expectedResult.put("1".charAt(0), 1);
         expectedResult.put("!".charAt(0), 1);

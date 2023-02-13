@@ -1,4 +1,4 @@
-package ua.com.foxminded.collectionframework;
+package ua.com.foxminded.charcounter;
 
 import java.util.HashMap;
 import java.util.Map;
