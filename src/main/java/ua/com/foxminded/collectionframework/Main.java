@@ -8,11 +8,12 @@ public class Main {
 
     private static final String NEW_LINE = System.lineSeparator();
     private static final char QUOTES = '"';
+    private static final String APOSTROPHE = "'";
     private static final String HYPHEN = " - ";
-    
+
     static Map<String, Map<Character, Integer>> cache = new HashMap<String, Map<Character, Integer>>();
     private static Scanner scanner = new Scanner(System.in);
-    
+
     public static void main(String[] args) {
         while (true) {
             printCharCount(readLine());
@@ -36,7 +37,7 @@ public class Main {
         text = scanner.next();
         return text;
     }
-    
+
     private static String format(String text) {
         if (text == null) {
             throw new NullPointerException("Text cann`t be null");
@@ -50,13 +51,18 @@ public class Main {
         formattedResult.append(text + NEW_LINE);
         try {
             for (Character character : cache.get(text).keySet()) {
-                formattedResult.append(
-                        QUOTES + character.toString() + QUOTES + HYPHEN + cache.get(text).get(character) + NEW_LINE);
+                if (character.equals('"')) {
+                    formattedResult.append(APOSTROPHE + character.toString() + APOSTROPHE + HYPHEN
+                            + cache.get(text).get(character) + NEW_LINE);
+                } else {
+                    formattedResult.append(QUOTES + character.toString() + QUOTES + HYPHEN
+                            + cache.get(text).get(character) + NEW_LINE);
+                }
             }
         } catch (NullPointerException e) {
             throw new NullPointerException("No text in cache");
         }
         return formattedResult.toString();
     }
-    
+
 }
