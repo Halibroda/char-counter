@@ -11,7 +11,7 @@ public class Counter {
         }
         Map<Character, Integer> charCount = new HashMap<Character, Integer>();
         for (int i = 0; i < text.length(); i++) {
-            char currentChar = text.toLowerCase().charAt(i);
+            char currentChar = text.charAt(i);
             if (charCount.containsKey(currentChar)) {
                 charCount.put(currentChar, charCount.get(currentChar) + 1);
             } else {

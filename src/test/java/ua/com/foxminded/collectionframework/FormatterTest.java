@@ -50,12 +50,14 @@ class FormatterTest {
     @Test
     void format_multipleSameLetters_correctLine() {
         Map<Character, Integer> countOfChar = new HashMap<>();
-        countOfChar.put("q".charAt(0), 7);
+        countOfChar.put("q".charAt(0), 4);
+        countOfChar.put("Q".charAt(0), 3);
         Map<String, Map<Character, Integer>> cache = new HashMap<>();
         cache.put("qqqqQQQ", countOfChar);
         StringBuilder expected = new StringBuilder();
         expected.append("qqqqQQQ" + System.lineSeparator());
-        expected.append('"' + "q" + '"' + " - 7" + System.lineSeparator());
+        expected.append('"' + "q" + '"' + " - 4" + System.lineSeparator());
+        expected.append('"' + "Q" + '"' + " - 3" + System.lineSeparator());
         assertEquals(expected.toString(), formatter.format("qqqqQQQ", cache));
     }
     
@@ -80,8 +82,9 @@ class FormatterTest {
     @Test
     void format_simpleString_correctLine() {
         Map<Character, Integer> countOfChar = new HashMap<>();
-        countOfChar.put("h".charAt(0), 1);
-        countOfChar.put("e".charAt(0), 6);
+        countOfChar.put("H".charAt(0), 1);
+        countOfChar.put("e".charAt(0), 5);
+        countOfChar.put("E".charAt(0), 1);
         countOfChar.put("l".charAt(0), 2);
         countOfChar.put("o".charAt(0), 1);
         countOfChar.put(",".charAt(0), 1);
@@ -95,8 +98,9 @@ class FormatterTest {
         expected.append("Heeeeello, Emy!!" + System.lineSeparator());
         expected.append('"' + " " + '"' + " - 1" + System.lineSeparator());
         expected.append('"' + "!" + '"' + " - 2" + System.lineSeparator());
-        expected.append('"' + "e" + '"' + " - 6" + System.lineSeparator());
-        expected.append('"' + "h" + '"' + " - 1" + System.lineSeparator());
+        expected.append('"' + "e" + '"' + " - 5" + System.lineSeparator());
+        expected.append('"' + "E" + '"' + " - 1" + System.lineSeparator());
+        expected.append('"' + "H" + '"' + " - 1" + System.lineSeparator());
         expected.append('"' + "y" + '"' + " - 1" + System.lineSeparator());
         expected.append('"' + "l" + '"' + " - 2" + System.lineSeparator());
         expected.append('"' + "," + '"' + " - 1" + System.lineSeparator());

@@ -47,9 +47,10 @@ class CounterTest {
     }
 
     @Test
-    void format_multipleSameLetters_correctLine() {
+    void format_multipleSameLettersUpperLowerCase_correctLine() {
         Map<Character, Integer> expectedResult = new HashMap<>();
-        expectedResult.put("q".charAt(0), 7);
+        expectedResult.put("q".charAt(0), 4);
+        expectedResult.put("Q".charAt(0), 3);
         assertEquals(expectedResult, counter.countChar("qqqqQQQ"));
     }
 
@@ -66,8 +67,9 @@ class CounterTest {
     @Test
     void countChar_simpleString_correctMap() {
         Map<Character, Integer> expectedResult = new HashMap<>();
-        expectedResult.put("h".charAt(0), 1);
-        expectedResult.put("e".charAt(0), 6);
+        expectedResult.put("H".charAt(0), 1);
+        expectedResult.put("e".charAt(0), 5);
+        expectedResult.put("E".charAt(0), 1);
         expectedResult.put("l".charAt(0), 2);
         expectedResult.put("o".charAt(0), 1);
         expectedResult.put(",".charAt(0), 1);
