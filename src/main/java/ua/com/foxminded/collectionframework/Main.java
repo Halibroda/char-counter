@@ -6,8 +6,13 @@ import java.util.Scanner;
 
 public class Main {
 
+    private static final String NEW_LINE = System.lineSeparator();
+    private static final char QUOTES = '"';
+    private static final String HYPHEN = " - ";
+    
     static Map<String, Map<Character, Integer>> cache = new HashMap<String, Map<Character, Integer>>();
-
+    private static Scanner scanner = new Scanner(System.in);
+    
     public static void main(String[] args) {
         while (true) {
             printCharCount(readLine());
@@ -16,23 +21,42 @@ public class Main {
 
     private static void printCharCount(String text) {
         Counter counter = new Counter();
-        Formatter formatter = new Formatter();
         if (cache.containsKey(text)) {
-            System.out.println(formatter.format(text, cache));
+            System.out.println(format(text));
         } else {
             Map<Character, Integer> test = counter.countChar(text);
             cache.put(text, test);
-            System.out.println(formatter.format(text, cache));
+            System.out.println(format(text));
         }
     }
 
-    static String readLine() {
+    private static String readLine() {
         String text;
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter dividend: ");
+        System.out.print("Enter text: ");
         text = scanner.next();
-        scanner.close();
         return text;
+    }
+    
+    private static String format(String text) {
+        if (text == null) {
+            throw new NullPointerException("Text cann`t be null");
+        } else if (cache == null) {
+            throw new NullPointerException("Cache cann`t be null");
+        }
+        if (text.equals("")) {
+            return "#NO TEXT ENTERED#" + NEW_LINE;
+        }
+        StringBuilder formattedResult = new StringBuilder();
+        formattedResult.append(text + NEW_LINE);
+        try {
+            for (Character character : cache.get(text).keySet()) {
+                formattedResult.append(
+                        QUOTES + character.toString() + QUOTES + HYPHEN + cache.get(text).get(character) + NEW_LINE);
+            }
+        } catch (NullPointerException e) {
+            throw new NullPointerException("No text in cache");
+        }
+        return formattedResult.toString();
     }
     
 }
