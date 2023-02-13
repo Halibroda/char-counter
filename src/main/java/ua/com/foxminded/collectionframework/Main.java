@@ -2,16 +2,16 @@ package ua.com.foxminded.collectionframework;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Main {
 
     static Map<String, Map<Character, Integer>> cache = new HashMap<String, Map<Character, Integer>>();
 
     public static void main(String[] args) {
-        printCharCount("Hello World!!");
-        printCharCount("HI");
-        printCharCount("   ");
-        printCharCount("Hello World!!");
+        while (true) {
+            printCharCount(readLine());
+        }
     }
 
     private static void printCharCount(String text) {
@@ -26,4 +26,13 @@ public class Main {
         }
     }
 
+    static String readLine() {
+        String text;
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter dividend: ");
+        text = scanner.next();
+        scanner.close();
+        return text;
+    }
+    
 }
