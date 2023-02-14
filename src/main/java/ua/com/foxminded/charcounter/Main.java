@@ -48,7 +48,6 @@ public class Main {
             return "#NO TEXT ENTERED#" + NEW_LINE;
         }
         StringBuilder formattedResult = new StringBuilder();
-        formattedResult.append(text + NEW_LINE);
         try {
             for (Character character : cache.get(text).keySet()) {
                 if (character.equals('"')) {
