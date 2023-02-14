@@ -1,7 +1,6 @@
 package ua.com.foxminded.charcounter;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
