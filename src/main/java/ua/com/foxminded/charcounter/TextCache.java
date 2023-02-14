@@ -3,13 +3,19 @@ package ua.com.foxminded.charcounter;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Counter {
+public class TextCache implements Cache {
+    private Map<String, Map<Character, Integer>> textData = new HashMap<>();
+    
+    public TextCache(Map<String, Map<Character, Integer>> textData) {
+        this.textData = textData;
+    }
 
-    public Map<Character, Integer> countChar(String text) {
+    @Override
+    public void addData(String text) {
         if (text == null) {
             throw new NullPointerException("Text cann`t be null");
         }
-        Map<Character, Integer> charCount = new HashMap<Character, Integer>();
+        Map<Character, Integer> charCount = new HashMap<>();
         for (int i = 0; i < text.length(); i++) {
             char currentChar = text.charAt(i);
             if (charCount.containsKey(currentChar)) {
@@ -18,7 +24,13 @@ public class Counter {
                 charCount.put(currentChar, 1);
             }
         }
-        return charCount;
+        textData.put(text, charCount);
     }
 
+    @Override
+    public Map<String, Map<Character, Integer>> getData() {
+        return textData;
+    }
+    
+    
 }

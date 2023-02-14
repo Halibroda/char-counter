@@ -11,7 +11,7 @@ public class Main {
     private static final String APOSTROPHE = "'";
     private static final String HYPHEN = " - ";
 
-    static Map<String, Map<Character, Integer>> cache = new HashMap<String, Map<Character, Integer>>();
+    private static Cache cacheTest = new TextCache(new HashMap<>());
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -21,12 +21,10 @@ public class Main {
     }
 
     private static void printCharCount(String text) {
-        Counter counter = new Counter();
-        if (cache.containsKey(text)) {
+        if (cacheTest.getData().containsKey(text)) {
             System.out.println(format(text));
         } else {
-            Map<Character, Integer> test = counter.countChar(text);
-            cache.put(text, test);
+            cacheTest.addData(text);
             System.out.println(format(text));
         }
     }
@@ -41,7 +39,7 @@ public class Main {
     private static String format(String text) {
         if (text == null) {
             throw new NullPointerException("Text cann`t be null");
-        } else if (cache == null) {
+        } else if (cacheTest == null) {
             throw new NullPointerException("Cache cann`t be null");
         }
         if (text.equals("")) {
@@ -49,13 +47,13 @@ public class Main {
         }
         StringBuilder formattedResult = new StringBuilder();
         try {
-            for (Character character : cache.get(text).keySet()) {
+            for (Character character : cacheTest.getData().get(text).keySet()) {
                 if (character.equals('"')) {
                     formattedResult.append(APOSTROPHE + character.toString() + APOSTROPHE + HYPHEN
-                            + cache.get(text).get(character) + NEW_LINE);
+                            + cacheTest.getData().get(text).get(character) + NEW_LINE);
                 } else {
                     formattedResult.append(QUOTES + character.toString() + QUOTES + HYPHEN
-                            + cache.get(text).get(character) + NEW_LINE);
+                            + cacheTest.getData().get(text).get(character) + NEW_LINE);
                 }
             }
         } catch (NullPointerException e) {
