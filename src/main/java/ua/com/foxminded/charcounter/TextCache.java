@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class TextCache implements Cache {
     private Map<String, Map<Character, Integer>> textData = new HashMap<>();
-    
+
     public TextCache(Map<String, Map<Character, Integer>> textData) {
         this.textData = textData;
     }
@@ -31,6 +31,5 @@ public class TextCache implements Cache {
     public Map<String, Map<Character, Integer>> getData() {
         return textData;
     }
-    
-    
+
 }
