@@ -14,9 +14,13 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        while (true) {
-            printCharCount(readLine());
+        System.out.println("Enter 'Stop' to stop program");
+        String text = readLine();
+        while (!text.equals("Stop")) {
+            printCharCount(text);
+            text = readLine();
         }
+        scanner.close();
     }
 
     private static void printCharCount(String text) {
@@ -30,7 +34,6 @@ public class Main {
 
     private static String readLine() {
         String text;
-        System.out.print("Enter text: ");
         text = scanner.next();
         return text;
     }
