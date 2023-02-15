@@ -10,23 +10,23 @@ public class Main {
     private static final String APOSTROPHE = "'";
     private static final String HYPHEN = " - ";
 
-    private static Cache cacheTest = new TextCache(new HashMap<>());
+    private static Cache cache = new TextCache(new HashMap<>());
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.println("Enter 'Stop' to stop program");
         String text = readLine();
         while (!text.equals("Stop")) {
-            if (!cacheTest.getData().containsKey(text)) {
-                cacheTest.addData(text);
+            if (!cache.getData().containsKey(text)) {
+                cache.addData(text);
             }
-            for (Character character : cacheTest.getData().get(text).keySet()) {
+            for (Character character : cache.getData().get(text).keySet()) {
                 if (character.equals('"')) {
                     System.out.println(APOSTROPHE + character.toString() + APOSTROPHE + HYPHEN
-                            + cacheTest.getData().get(text).get(character) + NEW_LINE);
+                            + cache.getData().get(text).get(character) + NEW_LINE);
                 } else {
                     System.out.println(QUOTES + character.toString() + QUOTES + HYPHEN
-                            + cacheTest.getData().get(text).get(character) + NEW_LINE);
+                            + cache.getData().get(text).get(character) + NEW_LINE);
                 }
             }
             text = readLine();
