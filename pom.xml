@@ -3,7 +3,8 @@
     <groupId>ua.com.foxminded</groupId>
     <artifactId>collection-framework</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Collection Framework</name>
+    <name>Char counter</name>
+    <description>Char-counter application that takes a string and returns the number of unique characters in the string.</description>
     <properties>
         <junit-api.version>5.9.0</junit-api.version>
         <junit-surefire.version>1.2.0-M1</junit-surefire.version>
