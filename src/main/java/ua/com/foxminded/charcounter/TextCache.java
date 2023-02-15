@@ -28,8 +28,8 @@ public class TextCache implements Cache {
     }
 
     @Override
-    public Map<String, Map<Character, Integer>> getData() {
-        return textData;
+    public Map<Character, Integer> getData(String text) {
+        return textData.get(text);
     }
 
 }
