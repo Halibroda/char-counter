@@ -13,6 +13,9 @@ public class DataCache extends Cache{
     
     @Override
     public Map<Character, Integer> countCharacters(String text) {
+        if (text == null) {
+            throw new NullPointerException("Text cann`t be null");
+        }
         return cache.computeIfAbsent(text, super::countCharacters);
     }
 }
