@@ -1,18 +1,18 @@
 package ua.com.foxminded.charcounter;
 
+import java.util.HashMap;
 import java.util.Map;
 
-public class DataCache extends DataSourceCache{
+public class DataCache extends Cache{
 
-    public DataCache(Cache textData) {
-        super(textData);
+    private Map<String, Map<Character, Integer>> cache = new HashMap<>();
+    
+    public DataCache(Counter data) {
+        super(data);
     }
     
     @Override
-    public Map<Character, Integer> getData(String text) {
-        if (super.getData(text) == null) {
-            super.addData(text);
-        }
-        return super.getData(text);
+    public Map<Character, Integer> countCharacters(String text) {
+        return cache.computeIfAbsent(text, super::countCharacters);
     }
 }

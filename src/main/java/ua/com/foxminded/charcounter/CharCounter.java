@@ -3,15 +3,9 @@ package ua.com.foxminded.charcounter;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TextCache implements Cache {
-    private Map<String, Map<Character, Integer>> textData = new HashMap<>();
-
-    public TextCache(Map<String, Map<Character, Integer>> textData) {
-        this.textData = textData;
-    }
-
+public class CharCounter implements Counter {
     @Override
-    public void addData(String text) {
+    public Map<Character, Integer> countCharacters(String text) {
         if (text == null) {
             throw new NullPointerException("Text cann`t be null");
         }
@@ -24,12 +18,6 @@ public class TextCache implements Cache {
                 charCount.put(currentChar, 1);
             }
         }
-        textData.put(text, charCount);
+        return charCount;
     }
-
-    @Override
-    public Map<Character, Integer> getData(String text) {
-        return textData.get(text);
-    }
-
 }

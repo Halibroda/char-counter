@@ -1,6 +1,5 @@
 package ua.com.foxminded.charcounter;
 
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
@@ -9,20 +8,20 @@ public class Main {
     private static final String APOSTROPHE = "'";
     private static final String HYPHEN = " - ";
 
-    private static Cache cache = new DataCache(new TextCache(new HashMap<>()));
+    private static Counter cache = new DataCache(new CharCounter());
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.println("Enter 'Stop' to stop program");
         String text = readLine();
         while (!text.equals("Stop")) {
-            for (Character character : cache.getData(text).keySet()) {
+            for (Character character : cache.countCharacters(text).keySet()) {
                 if (character.equals('"')) {
                     System.out.println(APOSTROPHE + character.toString() + APOSTROPHE + HYPHEN
-                            + cache.getData(text).get(character));
+                            + cache.countCharacters(text).get(character));
                 } else {
                     System.out.println(QUOTES + character.toString() + QUOTES + HYPHEN
-                            + cache.getData(text).get(character));
+                            + cache.countCharacters(text).get(character));
                 }
             }
             text = readLine();
