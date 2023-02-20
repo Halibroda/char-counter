@@ -3,11 +3,11 @@ package ua.com.foxminded.charcounter;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DataCache extends Cache {
+public class CharCounterCache extends Cache {
 
     private Map<String, Map<Character, Integer>> cache = new HashMap<>();
 
-    public DataCache(CharCounter charCounter) {
+    public CharCounterCache(CharCounter charCounter) {
         super(charCounter);
     }
 

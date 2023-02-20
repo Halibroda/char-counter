@@ -9,13 +9,13 @@ import org.junit.jupiter.api.Test;
 class DataCacheTest {
 
     private CharCounter charCounter = new UniqueCharCounter();
-    private DataCache dataCache = new DataCache(charCounter);
+    private CharCounterCache charCounterCache = new CharCounterCache(charCounter);
 
     @Test
     void countCharacters_sameInput_returnsCachedResult() {
         String input = "abc";
-        Map<Character, Integer> actualResult1 = dataCache.countCharacters(input);
-        Map<Character, Integer> actualResult2 = dataCache.countCharacters(input);
+        Map<Character, Integer> actualResult1 = charCounterCache.countCharacters(input);
+        Map<Character, Integer> actualResult2 = charCounterCache.countCharacters(input);
 
         assertEquals(actualResult1, actualResult2);
     }
@@ -24,8 +24,8 @@ class DataCacheTest {
     void countCharacters_differentInput_returnsDifferentResult() {
         String input1 = "abc";
         String input2 = "def";
-        Map<Character, Integer> result1 = dataCache.countCharacters(input1);
-        Map<Character, Integer> result2 = dataCache.countCharacters(input2);
+        Map<Character, Integer> result1 = charCounterCache.countCharacters(input1);
+        Map<Character, Integer> result2 = charCounterCache.countCharacters(input2);
 
         assertNotSame(result1, result2);
     }
