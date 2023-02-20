@@ -3,6 +3,7 @@ package ua.com.foxminded.charcounter;
 import java.util.Map;
 
 abstract class CharCounterDecorator implements CharCounter {
+    
     private CharCounter charCounter;
 
     protected CharCounterDecorator(CharCounter charCounter) {

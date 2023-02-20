@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UniqueCharCounter implements CharCounter {
+    
     @Override
     public Map<Character, Integer> countCharacters(String text) {
         if (text == null) {
