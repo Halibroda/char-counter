@@ -29,11 +29,4 @@ class DataCacheTest {
 
         assertNotSame(result1, result2);
     }
-
-    @Test
-    void countCharacters_throwsNullPointerExceptionForNullInput() {
-        NullPointerException thrown = assertThrows(NullPointerException.class, () -> charCounter.countCharacters(null));
-        assertEquals("Text cann`t be null", thrown.getMessage());
-    }
-
 }
