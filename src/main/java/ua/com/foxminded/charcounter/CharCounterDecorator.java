@@ -2,10 +2,10 @@ package ua.com.foxminded.charcounter;
 
 import java.util.Map;
 
-abstract class Cache implements CharCounter {
+abstract class CharCounterDecorator implements CharCounter {
     private CharCounter charCounter;
 
-    protected Cache(CharCounter charCounter) {
+    protected CharCounterDecorator(CharCounter charCounter) {
         this.charCounter = charCounter;
     }
 
