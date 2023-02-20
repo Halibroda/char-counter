@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-class CharCounterTest {
+class UniqueCharCounterTest {
 
     private CharCounter charCounter = new UniqueCharCounter();
 
