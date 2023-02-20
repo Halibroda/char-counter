@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-class DataCacheTest {
+class CharCounterCacheTest {
 
     private CharCounter charCounter = new UniqueCharCounter();
     private CharCounterCache charCounterCache = new CharCounterCache(charCounter);
