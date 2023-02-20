@@ -91,5 +91,4 @@ class CharCounterTest {
         NullPointerException thrown = assertThrows(NullPointerException.class, () -> charCounter.countCharacters(null));
         assertEquals("Text cann`t be null", thrown.getMessage());
     }
-
 }

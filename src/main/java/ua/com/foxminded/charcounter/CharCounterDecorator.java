@@ -14,5 +14,4 @@ abstract class CharCounterDecorator implements CharCounter {
     public Map<Character, Integer> countCharacters(String text) {
         return charCounter.countCharacters(text);
     }
-
 }

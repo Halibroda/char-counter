@@ -34,5 +34,4 @@ public class Main {
         text = scanner.next();
         return text;
     }
-
 }
