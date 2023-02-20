@@ -7,7 +7,7 @@ public class DataCache extends Cache{
 
     private Map<String, Map<Character, Integer>> cache = new HashMap<>();
     
-    public DataCache(Counter data) {
+    public DataCache(CharCounter data) {
         super(data);
     }
     

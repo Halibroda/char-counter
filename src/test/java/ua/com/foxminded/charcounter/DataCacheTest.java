@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 
 class DataCacheTest {
 
-    private Counter counter = new CharCounter();
-    private DataCache dataCache = new DataCache(counter);
+    private CharCounter charCounter = new UniqueCharCounter();
+    private DataCache dataCache = new DataCache(charCounter);
     
     @Test
     void countCharacters_sameInput_returnsCachedResult() {
@@ -32,7 +32,7 @@ class DataCacheTest {
 
     @Test
     void countCharacters_throwsNullPointerExceptionForNullInput() {
-        NullPointerException thrown = assertThrows(NullPointerException.class, () -> counter.countCharacters(null));
+        NullPointerException thrown = assertThrows(NullPointerException.class, () -> charCounter.countCharacters(null));
         assertEquals("Text cann`t be null", thrown.getMessage());
     }
 

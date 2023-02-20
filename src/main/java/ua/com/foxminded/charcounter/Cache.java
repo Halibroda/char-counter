@@ -2,16 +2,16 @@ package ua.com.foxminded.charcounter;
 
 import java.util.Map;
 
-abstract class Cache implements Counter {
-    private Counter counter;
+abstract class Cache implements CharCounter {
+    private CharCounter charCounter;
     
-    protected Cache(Counter counter) {
-       this.counter = counter;
+    protected Cache(CharCounter charCounter) {
+       this.charCounter = charCounter;
     }
 
     @Override
     public Map<Character, Integer> countCharacters(String data) {
-        return counter.countCharacters(data);
+        return charCounter.countCharacters(data);
     }
 
 }

@@ -9,41 +9,41 @@ import org.junit.jupiter.api.Test;
 
 class CharCounterTest {
 
-    private Counter counter = new CharCounter();
+    private CharCounter charCounter = new UniqueCharCounter();
 
     @Test
     void countCharacters_singleChar_correctLine() {
         Map<Character, Integer> expectedResult = new HashMap<>();
         expectedResult.put("h".charAt(0), 1);
-        assertEquals(expectedResult, counter.countCharacters("h"));
+        assertEquals(expectedResult, charCounter.countCharacters("h"));
     }
 
     @Test
     void countCharacters_singleQuote_correctLine() {
         Map<Character, Integer> expectedResult = new HashMap<>();
         expectedResult.put('"', 1);
-        assertEquals(expectedResult, counter.countCharacters(String.valueOf('"')));
+        assertEquals(expectedResult, charCounter.countCharacters(String.valueOf('"')));
     }
 
     @Test
     void countCharacters_severalQuotes_correctLine() {
         Map<Character, Integer> expectedResult = new HashMap<>();
         expectedResult.put('"', 3);
-        assertEquals(expectedResult, counter.countCharacters(String.valueOf('"') + '"' + '"'));
+        assertEquals(expectedResult, charCounter.countCharacters(String.valueOf('"') + '"' + '"'));
     }
 
     @Test
     void countCharacters_singleSpace_correctLine() {
         Map<Character, Integer> expectedResult = new HashMap<>();
         expectedResult.put(" ".charAt(0), 1);
-        assertEquals(expectedResult, counter.countCharacters(" "));
+        assertEquals(expectedResult, charCounter.countCharacters(" "));
     }
 
     @Test
     void countCharacters_severalSpace_correctLine() {
         Map<Character, Integer> expectedResult = new HashMap<>();
         expectedResult.put(" ".charAt(0), 3);
-        assertEquals(expectedResult, counter.countCharacters("   "));
+        assertEquals(expectedResult, charCounter.countCharacters("   "));
     }
 
     @Test
@@ -51,7 +51,7 @@ class CharCounterTest {
         Map<Character, Integer> expectedResult = new HashMap<>();
         expectedResult.put("q".charAt(0), 4);
         expectedResult.put("Q".charAt(0), 3);
-        assertEquals(expectedResult, counter.countCharacters("qqqqQQQ"));
+        assertEquals(expectedResult, charCounter.countCharacters("qqqqQQQ"));
     }
 
     @Test
@@ -61,7 +61,7 @@ class CharCounterTest {
         expectedResult.put("!".charAt(0), 1);
         expectedResult.put("@".charAt(0), 2);
         expectedResult.put("#".charAt(0), 1);
-        assertEquals(expectedResult, counter.countCharacters("1!@#@"));
+        assertEquals(expectedResult, charCounter.countCharacters("1!@#@"));
     }
 
     @Test
@@ -77,18 +77,18 @@ class CharCounterTest {
         expectedResult.put("m".charAt(0), 1);
         expectedResult.put("y".charAt(0), 1);
         expectedResult.put("!".charAt(0), 2);
-        assertEquals(expectedResult, counter.countCharacters("Heeeeello, Emy!!"));
+        assertEquals(expectedResult, charCounter.countCharacters("Heeeeello, Emy!!"));
     }
 
     @Test
     void countCharacters_emptyString_emptyMap() {
         Map<Character, Integer> expectedResult = new HashMap<>();
-        assertEquals(expectedResult, counter.countCharacters(""));
+        assertEquals(expectedResult, charCounter.countCharacters(""));
     }
 
     @Test
     void countCharacters_null_throwNullPointerException() {
-        NullPointerException thrown = assertThrows(NullPointerException.class, () -> counter.countCharacters(null));
+        NullPointerException thrown = assertThrows(NullPointerException.class, () -> charCounter.countCharacters(null));
         assertEquals("Text cann`t be null", thrown.getMessage());
     }
 

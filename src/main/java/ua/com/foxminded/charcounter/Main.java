@@ -8,7 +8,7 @@ public class Main {
     private static final String APOSTROPHE = "'";
     private static final String HYPHEN = " - ";
 
-    private static Counter cache = new DataCache(new CharCounter());
+    private static CharCounter cache = new DataCache(new UniqueCharCounter());
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
