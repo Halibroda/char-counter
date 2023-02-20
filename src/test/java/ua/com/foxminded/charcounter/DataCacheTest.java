@@ -10,7 +10,7 @@ class DataCacheTest {
 
     private CharCounter charCounter = new UniqueCharCounter();
     private DataCache dataCache = new DataCache(charCounter);
-    
+
     @Test
     void countCharacters_sameInput_returnsCachedResult() {
         String input = "abc";

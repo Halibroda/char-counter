@@ -3,14 +3,14 @@ package ua.com.foxminded.charcounter;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DataCache extends Cache{
+public class DataCache extends Cache {
 
     private Map<String, Map<Character, Integer>> cache = new HashMap<>();
-    
-    public DataCache(CharCounter data) {
-        super(data);
+
+    public DataCache(CharCounter charCounter) {
+        super(charCounter);
     }
-    
+
     @Override
     public Map<Character, Integer> countCharacters(String text) {
         if (text == null) {
