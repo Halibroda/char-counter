@@ -14,7 +14,7 @@ class CharCounterTest {
     @Test
     void countCharacters_singleChar_correctLine() {
         Map<Character, Integer> expectedResult = new HashMap<>();
-        expectedResult.put("h".charAt(0), 1);
+        expectedResult.put('h', 1);
         assertEquals(expectedResult, charCounter.countCharacters("h"));
     }
 
@@ -35,48 +35,48 @@ class CharCounterTest {
     @Test
     void countCharacters_singleSpace_correctLine() {
         Map<Character, Integer> expectedResult = new HashMap<>();
-        expectedResult.put(" ".charAt(0), 1);
+        expectedResult.put(' ', 1);
         assertEquals(expectedResult, charCounter.countCharacters(" "));
     }
 
     @Test
     void countCharacters_severalSpace_correctLine() {
         Map<Character, Integer> expectedResult = new HashMap<>();
-        expectedResult.put(" ".charAt(0), 3);
+        expectedResult.put(' ', 3);
         assertEquals(expectedResult, charCounter.countCharacters("   "));
     }
 
     @Test
     void countCharacters_multipleSameLettersUpperLowerCase_correctLine() {
         Map<Character, Integer> expectedResult = new HashMap<>();
-        expectedResult.put("q".charAt(0), 4);
-        expectedResult.put("Q".charAt(0), 3);
+        expectedResult.put('q', 4);
+        expectedResult.put('Q', 3);
         assertEquals(expectedResult, charCounter.countCharacters("qqqqQQQ"));
     }
 
     @Test
     void countCharacters_nonLettersString_correctLine() {
         Map<Character, Integer> expectedResult = new HashMap<>();
-        expectedResult.put("1".charAt(0), 1);
-        expectedResult.put("!".charAt(0), 1);
-        expectedResult.put("@".charAt(0), 2);
-        expectedResult.put("#".charAt(0), 1);
+        expectedResult.put('1', 1);
+        expectedResult.put('!', 1);
+        expectedResult.put('@', 2);
+        expectedResult.put('#', 1);
         assertEquals(expectedResult, charCounter.countCharacters("1!@#@"));
     }
 
     @Test
     void countCharacters_simpleString_correctMap() {
         Map<Character, Integer> expectedResult = new HashMap<>();
-        expectedResult.put("H".charAt(0), 1);
-        expectedResult.put("e".charAt(0), 5);
-        expectedResult.put("E".charAt(0), 1);
-        expectedResult.put("l".charAt(0), 2);
-        expectedResult.put("o".charAt(0), 1);
-        expectedResult.put(",".charAt(0), 1);
-        expectedResult.put(" ".charAt(0), 1);
-        expectedResult.put("m".charAt(0), 1);
-        expectedResult.put("y".charAt(0), 1);
-        expectedResult.put("!".charAt(0), 2);
+        expectedResult.put('H', 1);
+        expectedResult.put('e', 5);
+        expectedResult.put('E', 1);
+        expectedResult.put('l', 2);
+        expectedResult.put('o', 1);
+        expectedResult.put(',', 1);
+        expectedResult.put(' ', 1);
+        expectedResult.put('m', 1);
+        expectedResult.put('y', 1);
+        expectedResult.put('!', 2);
         assertEquals(expectedResult, charCounter.countCharacters("Heeeeello, Emy!!"));
     }
 
