@@ -2,7 +2,7 @@ package ua.com.foxminded.charcounter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.junit.jupiter.api.Test;
@@ -13,42 +13,42 @@ class UniqueCharCounterTest {
 
     @Test
     void countCharacters_singleChar_correctLine() {
-        Map<Character, Integer> expectedResult = new HashMap<>();
+        Map<Character, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put('h', 1);
         assertEquals(expectedResult, charCounter.countCharacters("h"));
     }
 
     @Test
     void countCharacters_singleQuote_correctLine() {
-        Map<Character, Integer> expectedResult = new HashMap<>();
+        Map<Character, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put('"', 1);
         assertEquals(expectedResult, charCounter.countCharacters(("\"")));
     }
 
     @Test
     void countCharacters_severalQuotes_correctLine() {
-        Map<Character, Integer> expectedResult = new HashMap<>();
+        Map<Character, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put('"', 3);
         assertEquals(expectedResult, charCounter.countCharacters("\"\"\""));
     }
 
     @Test
     void countCharacters_singleSpace_correctLine() {
-        Map<Character, Integer> expectedResult = new HashMap<>();
+        Map<Character, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put(' ', 1);
         assertEquals(expectedResult, charCounter.countCharacters(" "));
     }
 
     @Test
     void countCharacters_severalSpace_correctLine() {
-        Map<Character, Integer> expectedResult = new HashMap<>();
+        Map<Character, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put(' ', 3);
         assertEquals(expectedResult, charCounter.countCharacters("   "));
     }
 
     @Test
     void countCharacters_multipleSameLettersUpperLowerCase_correctLine() {
-        Map<Character, Integer> expectedResult = new HashMap<>();
+        Map<Character, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put('q', 4);
         expectedResult.put('Q', 3);
         assertEquals(expectedResult, charCounter.countCharacters("qqqqQQQ"));
@@ -56,7 +56,7 @@ class UniqueCharCounterTest {
 
     @Test
     void countCharacters_nonLettersString_correctLine() {
-        Map<Character, Integer> expectedResult = new HashMap<>();
+        Map<Character, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put('1', 1);
         expectedResult.put('!', 1);
         expectedResult.put('@', 2);
@@ -66,7 +66,7 @@ class UniqueCharCounterTest {
 
     @Test
     void countCharacters_simpleString_correctMap() {
-        Map<Character, Integer> expectedResult = new HashMap<>();
+        Map<Character, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put('H', 1);
         expectedResult.put('e', 5);
         expectedResult.put('l', 2);
@@ -82,7 +82,7 @@ class UniqueCharCounterTest {
 
     @Test
     void countCharacters_emptyString_emptyMap() {
-        Map<Character, Integer> expectedResult = new HashMap<>();
+        Map<Character, Integer> expectedResult = new LinkedHashMap<>();
         assertEquals(expectedResult, charCounter.countCharacters(""));
     }
 
