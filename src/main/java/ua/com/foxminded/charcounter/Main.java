@@ -8,20 +8,20 @@ public class Main {
     private static final String APOSTROPHE = "'";
     private static final String HYPHEN = " - ";
 
-    private static CharCounter cache = new CharCounterCache(new UniqueCharCounter());
+    private static CharCounter charCounter = new CharCounterCache(new UniqueCharCounter());
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.println("Enter 'Stop' to stop program");
-        String text = scanner.next();;
+        String text = scanner.next();
         while (!text.equals("Stop")) {
-            for (Character character : cache.countCharacters(text).keySet()) {
+            for (Character character : charCounter.countCharacters(text).keySet()) {
                 if (character.equals('"')) {
                     System.out.println(APOSTROPHE + character.toString() + APOSTROPHE + HYPHEN
-                            + cache.countCharacters(text).get(character));
+                            + charCounter.countCharacters(text).get(character));
                 } else {
                     System.out.println(QUOTES + character.toString() + QUOTES + HYPHEN
-                            + cache.countCharacters(text).get(character));
+                            + charCounter.countCharacters(text).get(character));
                 }
             }
             text = scanner.next();;
