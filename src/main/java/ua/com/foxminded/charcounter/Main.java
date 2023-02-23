@@ -16,14 +16,15 @@ public class Main {
         System.out.println("Enter 'Stop' to stop program");
         String text = scanner.next();
         while (!text.equals("Stop")) {
-            Map<Character, Integer> charCount = charCounter.countCharacters(text);
-            for (Character character : charCount.keySet()) {
+            for (Map.Entry<Character, Integer> entry : charCounter.countCharacters(text).entrySet())  {
+                Character character = entry.getKey();
+                Integer count = entry.getValue();
                 if (character.equals('"')) {
                     System.out.println(APOSTROPHE + character.toString() + APOSTROPHE + HYPHEN
-                            + charCount.get(character));
+                            + count);
                 } else {
                     System.out.println(QUOTES + character.toString() + QUOTES + HYPHEN
-                            + charCount.get(character));
+                            + count);
                 }
             }
             text = scanner.next();
