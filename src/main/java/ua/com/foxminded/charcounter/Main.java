@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Enter 'Stop' to stop program");
-        String text = readLine();
+        String text = scanner.next();;
         while (!text.equals("Stop")) {
             for (Character character : cache.countCharacters(text).keySet()) {
                 if (character.equals('"')) {
@@ -24,14 +24,8 @@ public class Main {
                             + cache.countCharacters(text).get(character));
                 }
             }
-            text = readLine();
+            text = scanner.next();;
         }
         scanner.close();
-    }
-
-    private static String readLine() {
-        String text;
-        text = scanner.next();
-        return text;
     }
 }
