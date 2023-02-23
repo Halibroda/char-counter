@@ -1,5 +1,6 @@
 package ua.com.foxminded.charcounter;
 
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -15,16 +16,17 @@ public class Main {
         System.out.println("Enter 'Stop' to stop program");
         String text = scanner.next();
         while (!text.equals("Stop")) {
-            for (Character character : charCounter.countCharacters(text).keySet()) {
+            Map<Character, Integer> charCount = charCounter.countCharacters(text);
+            for (Character character : charCount.keySet()) {
                 if (character.equals('"')) {
                     System.out.println(APOSTROPHE + character.toString() + APOSTROPHE + HYPHEN
-                            + charCounter.countCharacters(text).get(character));
+                            + charCount.get(character));
                 } else {
                     System.out.println(QUOTES + character.toString() + QUOTES + HYPHEN
-                            + charCounter.countCharacters(text).get(character));
+                            + charCount.get(character));
                 }
             }
-            text = scanner.next();;
+            text = scanner.next();
         }
         scanner.close();
     }
