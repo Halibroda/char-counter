@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 class CharCounterCacheTest {
 
     private CharCounter charCounter = mock(CharCounter.class);
-    private CharCounter cachedCharCounter = new CharCounterCache(charCounter);
+    private CharCounter cachedCharCounter = new CachedCharCounter(charCounter);
 
     @Test
     void countCharacters_input_methodFromCharCounterCalledOnce() {

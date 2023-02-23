@@ -9,7 +9,7 @@ public class Main {
     private static final String APOSTROPHE = "'";
     private static final String HYPHEN = " - ";
 
-    private static CharCounter charCounter = new CharCounterCache(new UniqueCharCounter());
+    private static CharCounter charCounter = new CachedCharCounter(new UniqueCharCounter());
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
