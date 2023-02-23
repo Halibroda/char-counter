@@ -14,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Enter 'Stop' to stop program");
-        String text = scanner.next();
+        String text = scanner.nextLine();
         while (!text.equals("Stop")) {
             for (Map.Entry<Character, Integer> entry : charCounter.countCharacters(text).entrySet())  {
                 Character character = entry.getKey();
@@ -27,7 +27,7 @@ public class Main {
                             + count);
                 }
             }
-            text = scanner.next();
+            text = scanner.nextLine();
         }
         scanner.close();
     }
