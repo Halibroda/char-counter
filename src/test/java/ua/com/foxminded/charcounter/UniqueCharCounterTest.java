@@ -69,11 +69,11 @@ class UniqueCharCounterTest {
         Map<Character, Integer> expectedResult = new HashMap<>();
         expectedResult.put('H', 1);
         expectedResult.put('e', 5);
-        expectedResult.put('E', 1);
         expectedResult.put('l', 2);
         expectedResult.put('o', 1);
         expectedResult.put(',', 1);
         expectedResult.put(' ', 1);
+        expectedResult.put('E', 1);
         expectedResult.put('m', 1);
         expectedResult.put('y', 1);
         expectedResult.put('!', 2);
