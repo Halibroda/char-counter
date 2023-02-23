@@ -22,14 +22,14 @@ class UniqueCharCounterTest {
     void countCharacters_singleQuote_correctLine() {
         Map<Character, Integer> expectedResult = new HashMap<>();
         expectedResult.put('"', 1);
-        assertEquals(expectedResult, charCounter.countCharacters(String.valueOf('"')));
+        assertEquals(expectedResult, charCounter.countCharacters(("\"")));
     }
 
     @Test
     void countCharacters_severalQuotes_correctLine() {
         Map<Character, Integer> expectedResult = new HashMap<>();
         expectedResult.put('"', 3);
-        assertEquals(expectedResult, charCounter.countCharacters(String.valueOf('"') + '"' + '"'));
+        assertEquals(expectedResult, charCounter.countCharacters("\"\"\""));
     }
 
     @Test
