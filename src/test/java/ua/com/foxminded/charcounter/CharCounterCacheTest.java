@@ -33,7 +33,7 @@ class CharCounterCacheTest {
 
         Map<Character, Integer> actual1 = cachedCharCounter.countCharacters(text);
         Map<Character, Integer> actual2 = cachedCharCounter.countCharacters(text);
-        
+
         assertEquals(expected, actual1);
         assertEquals(actual1, actual2);
 
