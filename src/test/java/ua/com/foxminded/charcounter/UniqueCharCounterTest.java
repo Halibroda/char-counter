@@ -12,42 +12,42 @@ class UniqueCharCounterTest {
     private CharCounter charCounter = new UniqueCharCounter();
 
     @Test
-    void countCharacters_singleChar_correctLine() {
+    void countCharacters_singleChar_correctCharactersNumber() {
         Map<Character, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put('h', 1);
         assertEquals(expectedResult, charCounter.countCharacters("h"));
     }
 
     @Test
-    void countCharacters_singleQuote_correctLine() {
+    void countCharacters_singleQuote_correctQuoteCharactersNumber() {
         Map<Character, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put('"', 1);
         assertEquals(expectedResult, charCounter.countCharacters(("\"")));
     }
 
     @Test
-    void countCharacters_severalQuotes_correctLine() {
+    void countCharacters_severalQuotes__correctQuoteCharactersNumber() {
         Map<Character, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put('"', 3);
         assertEquals(expectedResult, charCounter.countCharacters("\"\"\""));
     }
 
     @Test
-    void countCharacters_singleSpace_correctLine() {
+    void countCharacters_singleSpace_correctSpaceCharactersNumber() {
         Map<Character, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put(' ', 1);
         assertEquals(expectedResult, charCounter.countCharacters(" "));
     }
 
     @Test
-    void countCharacters_severalSpace_correctLine() {
+    void countCharacters_severalSpaces_correctSpaceCharactersNumber() {
         Map<Character, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put(' ', 3);
         assertEquals(expectedResult, charCounter.countCharacters("   "));
     }
 
     @Test
-    void countCharacters_multipleSameLettersUpperLowerCase_correctLine() {
+    void countCharacters_multipleSameLettersUpperLowerCase_correctCharactersNumber() {
         Map<Character, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put('q', 4);
         expectedResult.put('Q', 3);
@@ -55,7 +55,7 @@ class UniqueCharCounterTest {
     }
 
     @Test
-    void countCharacters_nonLettersString_correctLine() {
+    void countCharacters_nonLettersString_correctCharactersNumber() {
         Map<Character, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put('1', 1);
         expectedResult.put('!', 1);
@@ -65,7 +65,7 @@ class UniqueCharCounterTest {
     }
 
     @Test
-    void countCharacters_simpleString_correctMap() {
+    void countCharacters_simpleString_correctCharactersNumber() {
         Map<Character, Integer> expectedResult = new LinkedHashMap<>();
         expectedResult.put('H', 1);
         expectedResult.put('e', 5);

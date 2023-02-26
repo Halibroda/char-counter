@@ -7,10 +7,15 @@ import java.util.Map;
 
 import static org.mockito.Mockito.*;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 
 class CashedCharCounterTest {
 
-    private CharCounter charCounter = mock(CharCounter.class);
+    @Mock
+    private CharCounter charCounter;
+
+    @InjectMocks
     private CharCounter cachedCharCounter = new CachedCharCounter(charCounter);
 
     @Test
