@@ -8,7 +8,7 @@ import java.util.Map;
 import static org.mockito.Mockito.*;
 import org.junit.jupiter.api.Test;
 
-class CharCounterCacheTest {
+class CashedCharCounterTest {
 
     private CharCounter charCounter = mock(CharCounter.class);
     private CharCounter cachedCharCounter = new CachedCharCounter(charCounter);
