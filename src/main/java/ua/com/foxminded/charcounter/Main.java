@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static final char QUOTES = '"';
+    private static final char QUOTE = '"';
     private static final String APOSTROPHE = "'";
     private static final String HYPHEN = " - ";
 
@@ -22,7 +22,7 @@ public class Main {
                 if (character.equals('"')) {
                     System.out.println(APOSTROPHE + character.toString() + APOSTROPHE + HYPHEN + count);
                 } else {
-                    System.out.println(QUOTES + character.toString() + QUOTES + HYPHEN + count);
+                    System.out.println(QUOTE + character.toString() + QUOTE + HYPHEN + count);
                 }
             }
             text = scanner.nextLine();
