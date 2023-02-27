@@ -22,7 +22,7 @@ class CachedCharCounterTest {
     @Test
     void countCharacters_input_methodFromCharCounterCalledOnce() {
         MockitoAnnotations.openMocks(this);
-        
+
         String text = "Heeeeello, Emy!!";
 
         Map<Character, Integer> expected = new HashMap<>();
