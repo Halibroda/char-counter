@@ -9,6 +9,7 @@ import static org.mockito.Mockito.*;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 class CachedCharCounterTest {
 
@@ -16,10 +17,12 @@ class CachedCharCounterTest {
     private CharCounter charCounter;
 
     @InjectMocks
-    private CharCounter cachedCharCounter = new CachedCharCounter(charCounter);
+    private CachedCharCounter cachedCharCounter;
 
     @Test
     void countCharacters_input_methodFromCharCounterCalledOnce() {
+        MockitoAnnotations.openMocks(this);
+        
         String text = "Heeeeello, Emy!!";
 
         Map<Character, Integer> expected = new HashMap<>();
